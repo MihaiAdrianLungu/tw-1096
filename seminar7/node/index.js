@@ -3,11 +3,13 @@ const cors = require('cors');
 const orders = require('./utils/constants');
 const dotenv = require('dotenv');
 const app = express();
+const path = require('path');
 
 app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 dotenv.config();
+app.use(express.static(path.join(__dirname, 'public')));
 
 const PORT = process.env.PORT || 3000;
 
